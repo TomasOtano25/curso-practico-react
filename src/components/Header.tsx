@@ -1,4 +1,3 @@
-import React from "react";
 import menuIcon from "../assets/icons/icon_menu.svg";
 import yardSaleLogo from "../assets/logos/logo_yard_sale.svg";
 import shoppingCardIcon from "../assets/icons/icon_shopping_cart.svg";
@@ -11,7 +10,7 @@ const Header = () => {
       <img src={menuIcon} alt="menu" className="menu" />
 
       <div className="navbar-left">
-        return <img src={yardSaleLogo} alt="logo" className="logo" />;
+        <img src={yardSaleLogo} alt="logo" className="logo" />
         <ul>
           <li>
             <a href="/">All</a>

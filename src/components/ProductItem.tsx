@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
-import addCartIcon from "../assets/icons/bt_add_to_cart.svg";
+import addToCart from "../assets/icons/bt_add_to_cart.svg";
 
 import "../styles/ProductItem.scss";
 
@@ -15,6 +15,14 @@ type Props = {
 };
 
 export const ProductItem: FC<Props> = ({ data }) => {
+  const [cart, setCart] = useState<Product[]>([]);
+
+  const handleAddToCart = () => {
+    const temp: Product[] = [...cart];
+    temp.push(data);
+    setCart(temp);
+  };
+
   return (
     <div className="ProductItem">
       <img src={data.imageUrl} alt="" />
@@ -24,7 +32,7 @@ export const ProductItem: FC<Props> = ({ data }) => {
           <p>{data.name}</p>
         </div>
         <figure>
-          <img src={addCartIcon} alt="" />
+          <img onClick={handleAddToCart} src={addToCart} alt="" />
         </figure>
       </div>
     </div>
