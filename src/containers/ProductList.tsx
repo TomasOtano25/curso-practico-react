@@ -1,7 +1,7 @@
 import React from "react";
-import { ProductCard } from "../components/ProductCard";
+import { ProductItem } from "../components/ProductItem";
 
-import "../styles/Card.scss";
+import "../styles/ProductList.scss";
 
 const data = [
   {
@@ -12,15 +12,15 @@ const data = [
   },
 ];
 
-export const Main = () => {
+export const ProductList = () => {
   const items = [];
   for (let i = 0; i < 10; i++) {
-    items.push(<ProductCard data={data[0]} key={i} />);
+    items.push(<ProductItem data={data[0]} key={i} />);
   }
 
   return (
     <section className="main-container">
-      <div className="cards-container">{items}</div>
+      <div className="ProductList">{items}</div>
     </section>
   );
 };

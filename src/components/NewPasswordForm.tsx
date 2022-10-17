@@ -12,7 +12,6 @@ const NewPasswordForm = () => {
         placeholder="*********"
         className="input input-password"
       />
-
       <label htmlFor="new-password" className="label">
         Password
       </label>
@@ -22,7 +21,6 @@ const NewPasswordForm = () => {
         placeholder="*********"
         className="input input-password"
       />
-
       <input
         type="submit"
         value="Confirm"

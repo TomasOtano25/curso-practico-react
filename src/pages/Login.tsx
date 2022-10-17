@@ -1,13 +1,19 @@
-import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import yardSaleLogo from "../assets/logos/logo_yard_sale.svg";
 
 import "../styles/Login.scss";
 
 export const Login = () => {
+  const navigate = useNavigate();
+
+  const handleSignup = () => {
+    navigate("/signup");
+  };
+
   return (
-    <div className="login">
-      <div className="form-container">
+    <div className="Login">
+      <div className="Login-container">
         <img src={yardSaleLogo} alt="logo" className="logo" />
 
         <form action="/" className="form">
@@ -20,7 +26,6 @@ export const Login = () => {
             placeholder="platzi@example.cm"
             className="input input-email"
           />
-
           <label htmlFor="password" className="label">
             Password
           </label>
@@ -30,7 +35,6 @@ export const Login = () => {
             placeholder="*********"
             className="input input-password"
           />
-
           <input
             type="submit"
             value="Log in"
@@ -39,7 +43,12 @@ export const Login = () => {
           <a href="/">Forgot my password</a>
         </form>
 
-        <button className="secondary-button signup-button">Sign up</button>
+        <button
+          onClick={handleSignup}
+          className="secondary-button signup-button"
+        >
+          Sign up
+        </button>
       </div>
     </div>
   );

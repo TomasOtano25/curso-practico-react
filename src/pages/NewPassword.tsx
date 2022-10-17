@@ -7,12 +7,12 @@ import "../styles/NewPassword.scss";
 
 export const NewPassword = () => {
   return (
-    <div className="login">
-      <div className="form-container">
+    <div className="NewPassword">
+      <div className="NewPassword-container">
         <img src={yardSaleLogo} alt="logo" className="logo" />
 
         <h1 className="title">Create a new password</h1>
-        <p className="subtitle">Enter a new password for your account</p>
+        <p className="subtitle">Enter a new passwrd for yue account</p>
 
         <NewPasswordForm />
       </div>

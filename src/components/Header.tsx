@@ -11,8 +11,7 @@ const Header = () => {
       <img src={menuIcon} alt="menu" className="menu" />
 
       <div className="navbar-left">
-        <img src={yardSaleLogo} alt="logo" className="logo" />
-
+        return <img src={yardSaleLogo} alt="logo" className="logo" />;
         <ul>
           <li>
             <a href="/">All</a>

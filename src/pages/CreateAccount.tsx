@@ -1,13 +1,11 @@
 import React from "react";
+import "../styles/CreateAccount.scss";
 
-import "../styles/Register.scss";
-
-export const Register = () => {
+export const CreateAccount = () => {
   return (
-    <div className="login">
-      <div className="form-container">
+    <div className="CreateAccount">
+      <div className="CreateAccount-container">
         <h1 className="title">My account</h1>
-
         <form action="/" className="form">
           <div>
             <label htmlFor="name" className="label">
@@ -19,7 +17,6 @@ export const Register = () => {
               placeholder="Teff"
               className="input input-name"
             />
-
             <label htmlFor="email" className="label">
               Email
             </label>
@@ -29,7 +26,6 @@ export const Register = () => {
               placeholder="platzi@example.com"
               className="input input-email"
             />
-
             <label htmlFor="password" className="label">
               Password
             </label>
@@ -40,7 +36,6 @@ export const Register = () => {
               className="input input-password"
             />
           </div>
-
           <input
             type="submit"
             value="Create"

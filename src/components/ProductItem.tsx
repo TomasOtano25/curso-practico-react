@@ -1,6 +1,8 @@
-import React, { FC, PropsWithChildren } from "react";
+import { FC } from "react";
 
 import addCartIcon from "../assets/icons/bt_add_to_cart.svg";
+
+import "../styles/ProductItem.scss";
 
 type Product = {
   name: string;
@@ -12,9 +14,9 @@ type Props = {
   data: Product;
 };
 
-export const ProductCard: FC<Props> = ({ data }) => {
+export const ProductItem: FC<Props> = ({ data }) => {
   return (
-    <div className="product-card">
+    <div className="ProductItem">
       <img src={data.imageUrl} alt="" />
       <div className="product-info">
         <div>

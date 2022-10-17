@@ -1,29 +1,37 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { NewPassword } from "../containers/NewPassword";
-import { HomePage } from "../pages/HomePage";
+import { NewPassword } from "../pages/NewPassword";
+import { Home } from "../pages/Home";
 import "../styles/global.css";
 import { Layout } from "../containers/Layout";
-import { RecoveryPassword } from "../containers/RecoveryPassword";
+import { SendEmail } from "../pages/SendEmail";
 import { NotFound } from "../pages/NotFound";
-import { Login } from "../containers/Login";
-import { Register } from "../containers/Register";
-import { Account } from "../containers/Account";
+import { Login } from "../pages/Login";
+import { CreateAccount } from "../pages/CreateAccount";
+import { MyAccount } from "../pages/MyAccount";
+import { Orders } from "../pages/Orders";
+import { Checkout } from "../pages/Checkout";
+import { PasswordRecovery } from "../pages/PasswordRecovery";
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
         </Route>
 
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/password-recovery" element={<PasswordRecovery />} />
+
+        <Route path="/send-email" element={<SendEmail />} />
 
         <Route path="/new-password" element={<NewPassword />} />
-        <Route path="/recovery-password" element={<RecoveryPassword />} />
+        <Route path="/account" element={<MyAccount />} />
+        <Route path="/signup" element={<CreateAccount />} />
+
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/orders" element={<Orders />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
