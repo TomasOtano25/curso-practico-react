@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LoginForm = () => {
+const LoginForm = () => {
   return (
     <form action="/" className="form">
       <label htmlFor="password" className="label">
@@ -31,3 +31,5 @@ export const LoginForm = () => {
     </form>
   );
 };
+
+export { LoginForm };

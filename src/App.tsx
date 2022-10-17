@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { LoginPage } from "./containers/LoginPage";
-import { LoginForm } from "./components/LoginForm";
 import { HomePage } from "./containers/HomePage";
+import "./styles/global.css";
+import { Layout } from "./containers/Layout";
 
 const App = () => {
   return (
@@ -12,9 +13,9 @@ const App = () => {
         <Route
           path="/login"
           element={
-            <LoginPage>
-              <LoginForm />
-            </LoginPage>
+            <Layout>
+              <LoginPage />
+            </Layout>
           }
         />
         <Route path="*" element={<HomePage />} />

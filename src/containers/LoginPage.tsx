@@ -1,16 +1,19 @@
 import React, { FC, PropsWithChildren } from "react";
+import { LoginForm } from "../components/LoginForm";
 
-export const LoginPage: FC<PropsWithChildren> = ({ children }) => {
+import "../styles/Login.scss";
+
+export const LoginPage = () => {
   return (
     <div className="login">
       <div className="form-container">
         <img src="./logos/logo_yard_sale.svg" alt="logo" className="logo" />
 
         <h1 className="title">Create a new password</h1>
-        <p className="subtitle">Enter a new passwrd for yue account</p>
-      </div>
+        <p className="subtitle">Enter a new password for your account</p>
 
-      {children}
+        <LoginForm />
+      </div>
     </div>
   );
 };
