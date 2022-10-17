@@ -1,13 +1,15 @@
 import React, { FC, PropsWithChildren } from "react";
-import { NewPasswordForm } from "../components/NewPasswordForm";
 
-import "../styles/Login.scss";
+import { NewPasswordForm } from "../components/NewPasswordForm";
+import yardSaleLogo from "../assets/logos/logo_yard_sale.svg";
+
+import "../styles/NewPassword.scss";
 
 export const NewPassword = () => {
   return (
     <div className="login">
       <div className="form-container">
-        <img src="./logos/logo_yard_sale.svg" alt="logo" className="logo" />
+        <img src={yardSaleLogo} alt="logo" className="logo" />
 
         <h1 className="title">Create a new password</h1>
         <p className="subtitle">Enter a new password for your account</p>
