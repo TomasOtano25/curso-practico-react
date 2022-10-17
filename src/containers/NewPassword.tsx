@@ -1,9 +1,9 @@
 import React, { FC, PropsWithChildren } from "react";
-import { LoginForm } from "../components/LoginForm";
+import { NewPasswordForm } from "../components/NewPasswordForm";
 
 import "../styles/Login.scss";
 
-export const LoginPage = () => {
+export const NewPassword = () => {
   return (
     <div className="login">
       <div className="form-container">
@@ -12,7 +12,7 @@ export const LoginPage = () => {
         <h1 className="title">Create a new password</h1>
         <p className="subtitle">Enter a new password for your account</p>
 
-        <LoginForm />
+        <NewPasswordForm />
       </div>
     </div>
   );
