@@ -44,6 +44,16 @@ nav {
 	color: var(--very-light-pink);
 	font-size: var(--sm);
 	margin-right: 12px;
+	padding: 8px 4px;
+	border-radius: 8px;
+	border: solid 1px var(--very-light-pink);
+	transition: 150ms color ease-in;
+	transition: 150ms border-color ease-in;
+}
+.navbar-email:hover {
+	cursor: pointer;
+	color: var(--hospital-green);
+	border-color: var(--hospital-green);
 }
 .navbar-shopping-cart {
 	position: relative;
