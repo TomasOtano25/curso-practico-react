@@ -5,9 +5,9 @@ import addToCart from "../assets/icons/bt_add_to_cart.svg";
 import "../styles/ProductItem.scss";
 
 type Product = {
-  name: string;
-  imageUrl: string;
-  price: string;
+  title: string;
+  images: string[];
+  price: number;
 };
 
 type Props = {
@@ -25,11 +25,17 @@ export const ProductItem: FC<Props> = ({ data }) => {
 
   return (
     <div className="ProductItem">
-      <img src={data.imageUrl} alt="" />
+      <img
+        src={
+          data.images[0] ||
+          "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        }
+        alt=""
+      />
       <div className="product-info">
         <div>
           <p>${data.price}</p>
-          <p>{data.name}</p>
+          <p>{data.title}</p>
         </div>
         <figure>
           <img onClick={handleAddToCart} src={addToCart} alt="" />

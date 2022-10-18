@@ -1,26 +1,34 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { ProductItem } from "../components/ProductItem";
 
 import "../styles/ProductList.scss";
 
-const data = [
-  {
-    name: "Bike",
-    imageUrl:
-      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    price: "120,00",
-  },
-];
+const API = "https://api.escuelajs.co/api/v1/products";
+
+const fetchData = async () => {
+  const response = await axios(`${API}?offset=0&limit=20`);
+  return response.data;
+};
 
 export const ProductList = () => {
-  const items = [];
-  for (let i = 0; i < 10; i++) {
-    items.push(<ProductItem data={data[0]} key={i} />);
-  }
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function getProducts() {
+      const products = await fetchData();
+      setProducts(products);
+    }
+    getProducts();
+  }, []);
 
   return (
     <section className="main-container">
-      <div className="ProductList">{items}</div>
+      <div className="ProductList">
+        {products.map((product, i) => {
+          return <ProductItem data={product} key={i} />;
+        })}
+      </div>
     </section>
   );
 };
