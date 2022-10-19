@@ -1,15 +1,18 @@
+import { useContext, useState } from "react";
+
+import "@/styles/Header.scss";
 import menu from "@/assets/icons/icon_menu.svg";
 import yardSaleLogo from "@/assets/logos/logo_yard_sale.svg";
 import shoppingCardIcon from "@/assets/icons/icon_shopping_cart.svg";
 
-import "@/styles/Header.scss";
-import { useContext, useState } from "react";
-import { Menu } from "@/components/Menu";
 import AppContext from "@/context/AppContext";
+import { Menu } from "@/components/Menu";
 import { StateContext } from "@/hooks/useInitialState";
+import MyOrder from "@/containers/MyOrder";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
+  const [toggleOrders, setToggleOrders] = useState(false);
 
   const { state } = useContext<StateContext>(AppContext);
 
@@ -50,7 +53,10 @@ const Header = () => {
           <li className="navbar-email" onClick={handleToggle}>
             platzi@example.com
           </li>
-          <li className="navbar-shopping-cart">
+          <li
+            onClick={() => setToggleOrders(!toggleOrders)}
+            className="navbar-shopping-cart"
+          >
             <img src={shoppingCardIcon} alt="shopping cart" />
             {state!.cart.length > 0 ? <div>{state!.cart.length}</div> : null}
           </li>
@@ -58,6 +64,7 @@ const Header = () => {
       </div>
 
       {toggle && <Menu />}
+      {toggleOrders && <MyOrder />}
     </nav>
   );
 };
