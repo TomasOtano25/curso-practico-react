@@ -1,14 +1,29 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useRef, FormEvent } from "react";
+
+import { useNavigate } from "react-router-dom";
 
 import yardSaleLogo from "../assets/logos/logo_yard_sale.svg";
 
 import "../styles/Login.scss";
 
 export const Login = () => {
+  const form = useRef(null);
+
   const navigate = useNavigate();
 
   const handleSignup = () => {
     navigate("/signup");
+  };
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+
+    const formData = new FormData(form.current!);
+    const data = {
+      username: formData.get("email"),
+      password: formData.get("password"),
+    };
+    console.log(data);
   };
 
   return (
@@ -16,13 +31,13 @@ export const Login = () => {
       <div className="Login-container">
         <img src={yardSaleLogo} alt="logo" className="logo" />
 
-        <form action="/" className="form">
+        <form action="/" className="form" ref={form}>
           <label htmlFor="email" className="label">
             Email address
           </label>
           <input
             type="text"
-            id="email"
+            name="email"
             placeholder="platzi@example.cm"
             className="input input-email"
           />
@@ -31,15 +46,17 @@ export const Login = () => {
           </label>
           <input
             type="password"
-            id="password"
+            name="password"
             placeholder="*********"
             className="input input-password"
           />
-          <input
+          <button
+            onClick={handleSubmit}
             type="submit"
-            value="Log in"
             className="primary-button login-button"
-          />
+          >
+            Log in
+          </button>
           <a href="/">Forgot my password</a>
         </form>
 
