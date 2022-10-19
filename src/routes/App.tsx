@@ -13,29 +13,33 @@ import { Orders } from "../pages/Orders";
 import { Checkout } from "../pages/Checkout";
 import { PasswordRecovery } from "../pages/PasswordRecovery";
 
+import { AppProvider } from "../context/AppContext";
+
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home />} />
-        </Route>
+    <AppProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />} />
+          </Route>
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/password-recovery" element={<PasswordRecovery />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/password-recovery" element={<PasswordRecovery />} />
 
-        <Route path="/send-email" element={<SendEmail />} />
+          <Route path="/send-email" element={<SendEmail />} />
 
-        <Route path="/new-password" element={<NewPassword />} />
-        <Route path="/account" element={<MyAccount />} />
-        <Route path="/signup" element={<CreateAccount />} />
+          <Route path="/new-password" element={<NewPassword />} />
+          <Route path="/account" element={<MyAccount />} />
+          <Route path="/signup" element={<CreateAccount />} />
 
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/orders" element={<Orders />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/orders" element={<Orders />} />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </AppProvider>
   );
 };
 

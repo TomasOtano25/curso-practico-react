@@ -1,21 +1,21 @@
-import { Product } from "@/utils/types";
-import { FC, useState } from "react";
-
-import addToCart from "../assets/icons/bt_add_to_cart.svg";
+import { Context, FC, useContext } from "react";
 
 import "../styles/ProductItem.scss";
+import addToCartIcon from "../assets/icons/bt_add_to_cart.svg";
 
-type Props = {
+import AppContext from "@/context/AppContext";
+import { Product } from "@/utils/types";
+import { StateContext } from "@/hooks/useInitialState";
+
+interface Props {
   product: Product;
-};
+}
 
 export const ProductItem: FC<Props> = ({ product }) => {
-  const [cart, setCart] = useState<Product[]>([]);
+  const { addToCart } = useContext<StateContext>(AppContext);
 
-  const handleAddToCart = () => {
-    const temp: Product[] = [...cart];
-    temp.push(product);
-    setCart(temp);
+  const handleClick = (item: Product) => {
+    addToCart!(item);
   };
 
   return (
@@ -33,7 +33,11 @@ export const ProductItem: FC<Props> = ({ product }) => {
           <p>{product.title}</p>
         </div>
         <figure>
-          <img onClick={handleAddToCart} src={addToCart} alt="" />
+          <img
+            onClick={() => handleClick(product)}
+            src={addToCartIcon}
+            alt=""
+          />
         </figure>
       </div>
     </div>
