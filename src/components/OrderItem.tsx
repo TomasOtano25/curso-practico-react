@@ -14,7 +14,7 @@ export const OrderItem: FC<{ product: Product }> = ({ product }) => {
             product.images[0] ||
             "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
           }
-          alt="bike"
+          alt={product.title}
         />
       </figure>
       <p>{product.title}</p>

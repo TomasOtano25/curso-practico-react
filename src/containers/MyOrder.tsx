@@ -7,6 +7,14 @@ import arrow from "@/assets/icons/flechita.svg";
 const MyOrder = () => {
   const { state } = useContext(AppContext);
 
+  const sumTotal = () => {
+    // ((accumulator, currentValue) => accumulator + currentValue.price, initialValue);
+    const reducer = (acumulador: number, currentValue: { price: number }) =>
+      acumulador + currentValue.price;
+    const sum = state!.cart.reduce(reducer, 0);
+    return sum;
+  };
+
   return (
     <aside className="MyOrder">
       <div className="title-container">
@@ -21,7 +29,7 @@ const MyOrder = () => {
           <p>
             <span>Total</span>
           </p>
-          <p>${state!.cart.reduce((total, item) => total + item.price, 0)}</p>
+          <p>${sumTotal()}</p>
         </div>
         <button className="primary-button">Checkout</button>
       </div>
